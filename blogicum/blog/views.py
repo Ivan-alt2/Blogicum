@@ -52,6 +52,7 @@ POSTS_DICT = {post['id']: post for post in posts}
 def index(request):
     return render(request, 'blog/index.html', {'posts': posts})
 
+
 def post_detail(request, id):
     post = POSTS_DICT.get(id)
     if post is None:
@@ -63,4 +64,3 @@ def category_posts(request, category_slug):
     return render(request, 'blog/category.html', {
         'category_slug': category_slug
     })
-
