@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
 
-# Create your views here.
-
 posts = [
     {
         'id': 0,
@@ -40,8 +38,8 @@ posts = [
         'text': '''Всю ночь и весь день шёл дождь и дул сильный
                 порывистый ветер. 25 октября.  Корабль за ночь разбило
                 в щепки; на том месте, где он стоял, торчат какие-то
-                жалкие обломки,  да и те видны только во время отлива.
-                Весь этот день я хлопотал  около вещей: укрывал и
+                жалкие обломки, да и те видны только во время отлива.
+                Весь этот день я хлопотал около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
@@ -50,7 +48,7 @@ POSTS_DICT = {post['id']: post for post in posts}
 
 
 def index(request):
-    return render(request, 'blog/index.html', {'posts': posts})
+    return render(request, 'blog/index.html', {'posts': list(reversed(posts))})
 
 
 def post_detail(request, id):
